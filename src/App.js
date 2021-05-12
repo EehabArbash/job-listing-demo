@@ -12,15 +12,16 @@ function App() {
               className={`job-list-item ${job["featured"] ? "featured" : ""}`}
             >
               <main>
-                <img
-                  src={
-                    require(`./challenge-files/${job["logo"].slice(2)}`).default
-                  }
-                  alt="company-logo"
-                  className="job-logo"
-                ></img>
                 <div>
-                  <h2 className="job-company">{job["company"]}</h2>
+                  <div className="job-header">
+                    <h2 className="job-company">{job["company"]}</h2>
+                    {job["new"] ? <span className="new-tablet">NEW!</span> : ""}
+                    {job["featured"] ? (
+                      <span className="featured-tablet">FEATURED</span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                   <h3 className="job-position">{job["position"]}</h3>
                   <p className="job-info">
                     <span>{job["postedAt"]}</span>
@@ -30,6 +31,13 @@ function App() {
                     <span>{job["location"]}</span>
                   </p>
                 </div>
+                <img
+                  src={
+                    require(`./challenge-files/${job["logo"].slice(2)}`).default
+                  }
+                  alt="company-logo"
+                  className="job-logo"
+                ></img>
               </main>
               <aside>
                 <ul className="job-filters">
@@ -37,6 +45,9 @@ function App() {
                   <li className="filter-tablet">{job["level"]}</li>
                   {job["languages"].map((language) => (
                     <li className="filter-tablet">{language}</li>
+                  ))}
+                  {job["tools"].map((tool) => (
+                    <li className="filter-tablet">{tool}</li>
                   ))}
                 </ul>
               </aside>
