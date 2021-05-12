@@ -50,8 +50,13 @@ ul {
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 15px 150px -4px hsla(180, 29%, 50%, 20%);
+  box-shadow: 0 15px 15px -4px hsla(180, 29%, 50%, 20%);
   border-radius: 8px;
+}
+.job-list-item:hover,
+.job-list-item:focus {
+  padding: 2rem;
+  box-shadow: 0 30px 30px -10px rgba(56, 42, 42, 0.2);
 }
 .job-company {
   color: var(--dark-grayish-cyan);
@@ -103,6 +108,7 @@ ul {
 .featured {
   border-left: 5px solid var(--very-dark-grayish-cyan);
 }
+
 @media screen and (min-width: 740px) {
   .header {
     background-image: url("./challenge-files/images/bg-header-desktop.svg");
