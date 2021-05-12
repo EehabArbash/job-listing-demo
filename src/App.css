@@ -1,11 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
 
 :root {
   --page-bg-color: hsl(180, 52%, 96%);
   --header-bg-color: #5ba4a4;
+  --filter-tablet-bg-color: hsl(180, 31%, 95%);
+  --light-grayish-cyan: hsl(180, 31%, 95%);
+  --dark-grayish-cyan: hsl(180, 8%, 52%);
+  --very-dark-grayish-cyan: hsl(180, 8%, 52%);
 }
 * {
+  margin: 0;
+  padding: 0;
   max-width: 100%;
+  font-weight: unset;
   transition: all 200ms ease;
 }
 
@@ -13,7 +20,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: spartan;
-  background-color: var(--bg-primary-color);
+  background-color: var(--page-bg-color);
   font-size: 15px;
 }
 
@@ -32,12 +39,98 @@ ul {
 
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+.job-list-item {
+  background-color: white;
+  padding: 2rem 1rem 1rem 1rem;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 150px -4px hsla(180, 29%, 50%, 20%);
+  border-radius: 8px;
+}
+.job-company {
+  color: var(--dark-grayish-cyan);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.job-position {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.job-info {
+  color: var(--dark-grayish-cyan);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--very-dark-grayish-cyan);
+  font-weight: 700;
+}
+.job-info span {
+  font-size: 0.7rem;
+}
+.job-info-sep {
+  padding: 0 0.5rem;
+}
+.job-filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter-tablet {
+  font-weight: 700;
+  background-color: var(--filter-tablet-bg-color);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: var(--dark-grayish-cyan);
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+.filter-tablet:hover {
+  background-color: var(--header-bg-color);
+  color: var(--light-grayish-cyan);
+}
+
+.job-logo {
+  position: absolute;
+  top: -1.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+.featured {
+  border-left: 5px solid var(--very-dark-grayish-cyan);
+}
 @media screen and (min-width: 740px) {
   .header {
     background-image: url("./challenge-files/images/bg-header-desktop.svg");
+  }
+  .job-list-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .job-list-item main {
+    display: flex;
+    align-items: center;
+  }
+  .job-info {
+    border: unset;
+    font-weight: 500;
+  }
+  .job-info span {
+    font-size: 1rem;
+  }
+  .job-logo {
+    height: 5.5rem;
+    width: 5.5rem;
+    order: -1;
+    position: relative;
+    top: unset;
+    margin-right: 1.5rem;
   }
 }
