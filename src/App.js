@@ -1,13 +1,72 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import JOBS from "./Data";
 function App() {
+  const [jobs, setJobs] = useState(JOBS);
+  const [filters, setFilters] = useState([]);
+  const onFilterClick = ({ target }) => {
+    if (!filters.includes(target.innerHTML))
+      setFilters([...filters, target.innerHTML]);
+    else setFilters(filters.filter((filter) => filter !== target.innerHTML));
+  };
+  const onFilterRemove = ({ target }) => {
+    setFilters(filters.filter((filter) => filter !== target.id));
+  };
+  const onFilterClear = () => {
+    setFilters([]);
+  };
+
+  useEffect(() => {
+    setJobs(JOBS);
+    if (filters.length) {
+      setJobs(
+        JOBS.filter((job) => {
+          const allFilters = [
+            job["role"],
+            job["level"],
+            ...job["languages"],
+            ...job["tools"],
+          ];
+          return filters.every((filter) => allFilters.includes(filter));
+        })
+      );
+    }
+  }, [filters, jobs]);
+
   return (
     <>
       <header className="header"></header>
       <main className="container">
-        <div className="filters-bar"></div>
+        <div
+          className={`filters-bar ${
+            filters.length ? "inAnimation" : "outAnimation"
+          }`}
+        >
+          <div className="filters-bar-list ">
+            {filters.map((filter) => (
+              <div className="filters-bar-item birthAnimation">
+                <div className="filters-bar-tablet">{filter}</div>
+                <div
+                  onClick={onFilterRemove}
+                  id={filter}
+                  className="filters-bar-close"
+                >
+                  &#10006;
+                </div>
+              </div>
+            ))}
+          </div>
+          <span
+            href="#"
+            onClick={onFilterClear}
+            className="clear-btn birthAnimation"
+            style={{ display: filters.length ? "block" : "none" }}
+          >
+            Clear
+          </span>
+        </div>
         <ul className="jobs-list">
-          {JOBS.map((job) => (
+          {jobs.map((job) => (
             <li
               className={`job-list-item ${job["featured"] ? "featured" : ""}`}
             >
@@ -41,13 +100,21 @@ function App() {
               </main>
               <aside>
                 <ul className="job-filters">
-                  <li className="filter-tablet">{job["role"]}</li>
-                  <li className="filter-tablet">{job["level"]}</li>
+                  <li onClick={onFilterClick} className="filter-tablet">
+                    {job["role"]}
+                  </li>
+                  <li onClick={onFilterClick} className="filter-tablet">
+                    {job["level"]}
+                  </li>
                   {job["languages"].map((language) => (
-                    <li className="filter-tablet">{language}</li>
+                    <li onClick={onFilterClick} className="filter-tablet">
+                      {language}
+                    </li>
                   ))}
                   {job["tools"].map((tool) => (
-                    <li className="filter-tablet">{tool}</li>
+                    <li onClick={onFilterClick} className="filter-tablet">
+                      {tool}
+                    </li>
                   ))}
                 </ul>
               </aside>
