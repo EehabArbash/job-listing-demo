@@ -81,7 +81,7 @@ ul {
   font-weight: 700;
   background-color: var(--header-bg-color);
   padding: 1px 0.5rem;
-  
+
   color: var(--light-grayish-cyan);
   border-radius: 20px;
   font-size: 0.7rem;
@@ -91,7 +91,7 @@ ul {
   padding: 1px 0.5em;
   border-radius: 20px;
   font-size: 0.7rem;
-  
+
   background-color: #2c3a3a;
   color: white;
 }
@@ -150,12 +150,11 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
-  
+  overflow-x: auto;
 }
 
 .filters-bar-list {
-  margin : 1.5rem;
+  margin: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -184,19 +183,18 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   color: var(--filter-tablet-bg-color);
   background-color: var(--dark-grayish-cyan);
 }
 .clear-btn {
-  margin : 1.5rem;
+  margin: 1.5rem;
   color: var(--very-dark-grayish-cyan);
   font-weight: 700;
   cursor: pointer;
 }
 .inAnimation {
   animation: grow 200ms ease;
-  animation-delay: 20ms;
   animation-fill-mode: forwards;
 }
 .outAnimation {
@@ -206,13 +204,14 @@ ul {
 
 @keyframes grow {
   0% {
-    display: none;
+    overflow-y: hidden;
+    max-height: 6rem;
     width: 0%;
-    height: 0%;
   }
   100% {
-    width: unset;
-    height: unset;
+    max-height: 1000rem;
+    overflow-y: unset;
+    width: 100%;
   }
 }
 @keyframes shrink {
