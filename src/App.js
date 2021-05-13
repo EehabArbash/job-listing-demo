@@ -4,7 +4,10 @@ import JOBS from "./Data";
 function App() {
   const [jobs, setJobs] = useState(JOBS);
   const [filters, setFilters] = useState([]);
+  const [filtersClickedOnce, setFiltersClickedOnce] = useState(false);
+
   const onFilterClick = ({ target }) => {
+    setFiltersClickedOnce(true);
     if (!filters.includes(target.innerHTML))
       setFilters([...filters, target.innerHTML]);
     else setFilters(filters.filter((filter) => filter !== target.innerHTML));
@@ -39,7 +42,11 @@ function App() {
       <main className="container">
         <div
           className={`filters-bar ${
-            filters.length ? "inAnimation" : "outAnimation"
+            filtersClickedOnce
+              ? filters.length
+                ? "inAnimation"
+                : "outAnimation"
+              : "display-none"
           }`}
         >
           <div className="filters-bar-list ">

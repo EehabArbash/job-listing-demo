@@ -57,8 +57,7 @@ ul {
 }
 .job-list-item:hover,
 .job-list-item:active {
-  padding-left: 2rem;
-  padding-right: 2rem;
+
   box-shadow: 0 30px 30px -10px rgba(56, 42, 42, 0.2);
 }
 .job-header {
@@ -187,6 +186,12 @@ ul {
   color: var(--filter-tablet-bg-color);
   background-color: var(--dark-grayish-cyan);
 }
+.filters-bar-close:hover,
+filters-bar-close:active {
+  background-color: #2c3a3a;
+  color: white;
+}
+
 .clear-btn {
   margin: 1.5rem;
   color: var(--very-dark-grayish-cyan);
@@ -200,6 +205,9 @@ ul {
 .outAnimation {
   animation: shrink 200ms ease;
   animation-fill-mode: forwards;
+}
+.display-none{
+  display: none;
 }
 
 @keyframes grow {
