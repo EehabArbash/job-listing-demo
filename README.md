@@ -46,7 +46,7 @@ Users should be able to:
 ```
 
 - What is `useMemo()` Hook and when to use it .
-- How to resolve unwanted re-renders in React.
+- How to resolve unwanted re-renders with REact.memo.
 - Many CSS animations tricks
 
 ### Continued development

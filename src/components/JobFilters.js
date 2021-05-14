@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function JobFilters({job , onFilterClick}) {
+const JobFilters = React.memo(({ job, onFilterClick }) => {
   return (
     <ul className="job-filters">
       <li onClick={onFilterClick} className="filter-tablet">
@@ -21,4 +21,5 @@ export default function JobFilters({job , onFilterClick}) {
       ))}
     </ul>
   );
-}
+});
+export default JobFilters;

@@ -1,6 +1,6 @@
 import "./App.css";
 import FiltersBar from "./components/FiltersBar";
-import JobsList from "./components/JobsList";
+import Jobs from "./components/Jobs";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <header className="header"></header>
       <main className="container">
         <FiltersBar></FiltersBar>
-        <JobsList></JobsList>
+        <Jobs ></Jobs>
         
       </main>
     </>

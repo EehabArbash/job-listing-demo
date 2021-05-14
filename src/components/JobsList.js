@@ -1,34 +1,8 @@
-import React, { useMemo } from "react";
-import { useFilters, useFiltersClickedOnce } from "../Context";
-import JOBS from "../Data";
+import React from "react";
 import JobFilters from "./JobFilters";
-export default function JobsList() {
-  const [filters, setFilters] = useFilters();
 
-  const [, setFiltersClickedOnce] = useFiltersClickedOnce();
-  const onFilterClick = ({ target }) => {
-    setFiltersClickedOnce(true);
-    if (!filters.includes(target.innerHTML))
-      setFilters([...filters, target.innerHTML]);
-    else setFilters(filters.filter((filter) => filter !== target.innerHTML));
-  };
-
-  const jobs = useMemo(() => {
-    if (filters.length) {
-      return JOBS.filter((job) => {
-        const allFilters = [
-          job["role"],
-          job["level"],
-          ...job["languages"],
-          ...job["tools"],
-        ];
-        return filters.every((filter) => allFilters.includes(filter));
-      });
-    } else {
-      return JOBS;
-    }
-  }, [filters]);
-
+const JobsList = ({ jobs, onFilterClick }) => {
+    console.log('render');
   return (
     <ul className="jobs-list">
       {jobs.map((job) => (
@@ -68,4 +42,5 @@ export default function JobsList() {
       ))}
     </ul>
   );
-}
+};
+export default JobsList;
