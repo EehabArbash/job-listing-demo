@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
 
+/* General */
 :root {
   --page-bg-color: hsl(180, 52%, 96%);
   --header-bg-color: #5ba4a4;
@@ -8,6 +9,7 @@
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 8%, 52%);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +21,6 @@
 }
 
 body {
-  padding: 0;
-  margin: 0;
   font-family: spartan;
   background-color: var(--page-bg-color);
   font-size: 15px;
@@ -31,6 +31,8 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+/* Layout */
 
 .header {
   height: 155px;
@@ -45,7 +47,9 @@ ul {
   margin: 0 auto;
 }
 
-.job-list-item {
+/* Jobs List */
+
+.jobs-list-item {
   background-color: white;
   padding: 2rem 1rem 1rem 1rem;
   margin-bottom: 4rem;
@@ -55,9 +59,8 @@ ul {
   box-shadow: 0 15px 15px -4px hsla(180, 29%, 50%, 20%);
   border-radius: 8px;
 }
-.job-list-item:hover,
-.job-list-item:active {
-
+.jobs-list-item:hover,
+.jobs-list-item:active {
   box-shadow: 0 30px 30px -10px rgba(56, 42, 42, 0.2);
 }
 .job-header {
@@ -127,7 +130,6 @@ ul {
   color: var(--light-grayish-cyan);
   cursor: pointer;
 }
-
 .job-logo {
   position: absolute;
   top: -1.5rem;
@@ -138,6 +140,7 @@ ul {
   border-left: 5px solid var(--very-dark-grayish-cyan);
 }
 
+/* Filters BAr */
 .filters-bar {
   box-shadow: 0 15px 15px -4px hsla(180, 29%, 50%, 20%);
   border-radius: 10px;
@@ -198,6 +201,12 @@ filters-bar-close:active {
   font-weight: 700;
   cursor: pointer;
 }
+
+.display-none {
+  display: none;
+}
+
+/* Animations */
 .inAnimation {
   animation: grow 200ms ease;
   animation-fill-mode: forwards;
@@ -206,10 +215,6 @@ filters-bar-close:active {
   animation: shrink 200ms ease;
   animation-fill-mode: forwards;
 }
-.display-none{
-  display: none;
-}
-
 @keyframes grow {
   0% {
     overflow-y: hidden;
@@ -232,11 +237,12 @@ filters-bar-close:active {
   }
 }
 
-@media screen and (min-width: 740px) {
+/* Desktop */
+@media screen and (min-width: 1000px) {
   .header {
     background-image: url("./challenge-files/images/bg-header-desktop.svg");
   }
-  .job-list-item {
+  .jobs-list-item {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -244,7 +250,7 @@ filters-bar-close:active {
     margin-bottom: 2.5rem;
     gap: 8rem;
   }
-  .job-list-item main {
+  .job-main {
     display: flex;
     align-items: center;
   }
