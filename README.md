@@ -45,6 +45,8 @@ Users should be able to:
  <img src={require('path/to/img').default} alt='' />
 ```
 
+- What is `useMemo()` Hook and when to use it .
+- How to resolve unwanted re-renders in React.
 - Many CSS animations tricks
 
 ### Continued development
