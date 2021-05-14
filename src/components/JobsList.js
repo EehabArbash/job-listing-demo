@@ -1,8 +1,7 @@
 import React from "react";
 import JobFilters from "./JobFilters";
 
-const JobsList = ({ jobs, onFilterClick }) => {
-    console.log('render');
+export default function JobsList({ jobs, onFilterClick }) {
   return (
     <ul className="jobs-list">
       {jobs.map((job) => (
@@ -42,5 +41,4 @@ const JobsList = ({ jobs, onFilterClick }) => {
       ))}
     </ul>
   );
-};
-export default JobsList;
+}
